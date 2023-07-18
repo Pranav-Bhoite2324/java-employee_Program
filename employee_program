@@ -1,0 +1,107 @@
+package Main;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List<Employee> Employeis=new ArrayList<Employee>();
+		Scanner obj=new Scanner(System.in);
+		while(true)
+		{
+		System.out.println("enter 1:add employee,enter 2:update employee,enter 3:delete employee");
+		int input=obj.nextInt();
+		System.out.println("Please enter id and name of Student");
+		int id=obj.nextInt();
+		String name=obj.next();
+		if(input==1)
+		{
+		Employee st=new Employee(id,name);
+		addEmployee(Employeis, st);
+		displayEmployies(Employies);
+		}
+		else if(input==2)
+		{
+		updateEmployee(Employies,id,name);
+		displayEmployies(Employies);
+		}
+		else if(input==3)
+    {
+			deleteEmployee(Employies,id);
+			displayEmployies(Employies);
+		}
+		else 
+		{
+			System.out.println("Invalid input");
+		}
+		}
+	}
+	public static void addEmployee(List<Employee> Employies,Employee st)
+	{
+		Employies.add(st);
+		System.out.println("Employee is added");
+	}
+	public static void displayEmploies(List<Employee> Employies)
+	{
+		Employies.forEach(s->System.out.println("id:="+s.getId()+"name:="+s.getName()));
+	}
+	public static void updateEmployee(List<Employee> Employies,int id,String name)
+	{
+		for(Emoloyee s:employies)
+		{
+			if(s.getId()==id) {
+				s.setName(name);
+			}
+		}
+	}
+ public static void deleteEmployee(List<Employee> employeis,int id)
+	{
+
+		
+		Iterator<Employee> itr = Employee.iterator();            
+		while(itr.hasNext()){
+			Employee s = itr.next();
+		    if(s.getId()==id){
+		        itr.remove();
+		    }
+		}
+		
+		
+		
+	}
+
+}
+
+class Employee{
+	private int id;
+	private String name;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Employee(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	public Employee() {
+		
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+}
